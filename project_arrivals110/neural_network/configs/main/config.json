@@ -1,0 +1,56 @@
+{
+  "eqn_config": {
+    "eqn_name": "HJB",
+    "dim": 26,
+    "total_time": 8.0,
+    "num_time_interval": 480,
+    "num_model_interval": 96,
+    "data_dir": "../../../inputs/data",
+    "theta_file": "theta_hourly.csv",
+    "cost_file": "cost_rate.csv",
+    "zeta_file": "zeta_limit.csv",
+    "lambd_file": "lambda_limit.csv",
+    "sigma_file": "sigma_limit.csv",
+    "m_net_dir": "../../../offline_approximation/m_term/pooled/nn_training/logs_m",
+    "drift_net_dir": "../../../offline_approximation/drift_term/separate/nn_training/logs_drift_myopic",
+    "means_file": "reference_means_96.csv",
+    "chols_file": "reference_chols_96.csv",
+    "drift_mode": "separate",
+    "m_mode": "pooled",
+    "n_scale": 100.0,
+    "xi_file": "xi.csv",
+    "agents_file": "agents.csv",
+    "initial_range": 10.0,
+    "initial_box": true,
+    "headroom_file": "headroom.csv"
+  },
+  "net_config": {
+    "num_neurons": 100,
+    "num_layers": 4,
+    "activation": "eLU",
+    "slope": 0,
+    "prev_init": true,
+    "gamma": 0.1,
+    "inner_learning_rate": 0.001,
+    "final_learning_rate": 0.01,
+    "inner_milestones": [
+      500,
+      1500
+    ],
+    "final_milestones": [
+      500,
+      1500
+    ],
+    "final_iterations": 3000,
+    "inner_iterations": 2000,
+    "print_interval": 100,
+    "valid_size": 4096,
+    "batch_size": 256,
+    "grad_clip": true,
+    "grad_norm": 1.0,
+    "early_stopping": true,
+    "patience": 500,
+    "min_delta": 0.05,
+    "lambd_grad": 1.0
+  }
+}

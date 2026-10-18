@@ -1,0 +1,16 @@
+{
+  "cust_dim": 26,
+  "server_dim": 9,
+  "scale": 100,
+  "policy": "myopic",
+  "data_dir": "../../../../inputs/data",
+  "mu_file": "mu_hourly.csv",
+  "vbar_file": "vbar_activity.csv",
+  "cost_file": "cost_rate.csv",
+  "theta_file": "theta_hourly.csv",
+  "agents_file": "agents.csv",
+  "xi_file": "xi.csv",
+  "routing_file": "routing_matrix.csv",
+  "obs_dir": ".",
+  "output_dir": "."
+}

@@ -1,0 +1,77 @@
+"""Train a single M network over the whole horizon.
+
+    python main.py --config_path config.json --run_name pooled_elu4hidden
+"""
+
+import argparse
+import json
+import os
+
+import munch
+import numpy as np
+import torch
+
+from M_Net import M_Net
+
+
+def parse_arguments():
+    parser = argparse.ArgumentParser()
+    # defaults: the config next to this script, and a run name after it, so
+    # that a bare `python main.py` trains the default case
+    parser.add_argument('--config_path', type=str,
+                        default=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.json'),
+                        help="The path to load json file")
+    parser.add_argument('--run_name', type=str, default='m', help='The name of numerical experiments')
+    parser.add_argument('--out_dir', type=str, default=None,
+                        help='Where to write logs and weights (default: cwd)')
+    return parser.parse_args()
+
+
+# Environment variable that overrides where the trained weights and logs are
+# written, so a scheduler can direct output to scratch without editing configs.
+OUT_ENV = "DEEP_SPLITTING_OUT"
+
+
+def load_config(args):
+    """Read the config and make every path in it absolute.
+
+    Paths are resolved against the directory holding the config file, not the
+    working directory, so training runs identically from anywhere.  An absolute
+    path in the config is left alone."""
+    path = os.path.abspath(args.config_path)
+    base = os.path.dirname(path)
+    with open(path) as json_data_file:
+        config = json.load(json_data_file)
+
+    obs = config["data_config"]["obs_dir"]
+    if not os.path.isabs(obs):
+        config["data_config"]["obs_dir"] = os.path.normpath(os.path.join(base, obs))
+    return munch.munchify(config)
+
+
+def output_root(args):
+    """Where logs and weights go.  --out_dir wins, then DEEP_SPLITTING_OUT,
+    then the working directory."""
+    if args.out_dir:
+        return os.path.abspath(args.out_dir)
+    return os.path.abspath(os.environ.get(OUT_ENV, "."))
+
+
+def main():
+    print(torch.__version__)
+    args = parse_arguments()
+
+    config = load_config(args)
+
+    m_net_model = M_Net(config)
+
+    save_path_logs = os.path.join(output_root(args), f"logs_{args.run_name}")
+    os.makedirs(save_path_logs, exist_ok=True)
+    training_history = m_net_model.train(save_path_logs)
+
+    np.savetxt(os.path.join(save_path_logs, "training_history.csv"),
+               training_history, delimiter=',')
+
+
+if __name__ == '__main__':
+    main()

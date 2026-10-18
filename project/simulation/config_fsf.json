@@ -1,0 +1,21 @@
+{
+  "class_no": 26,
+  "station_no": 9,
+  "num_interval": 96,
+  "num_iterations": 1000,
+  "grid_step_min": 5,
+  "policy": "fsf",
+  "lambda_path": "data/lambda.csv",
+  "arr_cdf_path": "data/arr_cdf.csv",
+  "agents_path": "data/agents.csv",
+  "xi_path": "data/xi.csv",
+  "mu_hourly_path": "data/mu_hourly.csv",
+  "theta_hourly_path": "data/theta_hourly.csv",
+  "cost_rate_path": "data/cost_rate.csv",
+  "holding_cost_path": "data/holding_cost.csv",
+  "abandon_penalty_path": "data/abandon_penalty.csv",
+  "value_path": "data/v_activity.csv",
+  "vbar_path": "data/vbar_activity.csv",
+  "kappa_path": "data/kappa_class.csv",
+  "routing_path": "data/routing_matrix.csv"
+}

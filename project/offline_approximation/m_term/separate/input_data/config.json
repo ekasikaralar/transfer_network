@@ -1,0 +1,15 @@
+{
+  "cust_dim": 26,
+  "server_dim": 9,
+  "scale": 100,
+  "num_obs": 10000,
+  "seed": 73,
+  "data_dir": "../../../../inputs/data",
+  "xi_file": "xi.csv",
+  "agents_file": "agents.csv",
+  "cost_file": "cost_rate.csv",
+  "theta_file": "theta_hourly.csv",
+  "headroom_file": "../../../../inputs/data/headroom.csv",
+  "output_dir": "../output_data",
+  "headroom": 620.0
+}

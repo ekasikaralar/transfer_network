@@ -1,0 +1,19 @@
+{
+  "data_config": {
+    "num_intervals": 96,
+    "obs_dir": "../../separate/output_data",
+    "state_file": "state_observations_%03d.csv",
+    "drift_file": "d_term_output_fsf_%03d.csv"
+  },
+  "net_config": {
+    "init_learning": 0.01,
+    "epochs": 1000,
+    "print_interval": 50,
+    "num_neurons": 150,
+    "num_layers": 4,
+    "activation": "LeakyReLU",
+    "lr_decay_factor": 0.5,
+    "patience": 100,
+    "batch_size": 4096
+  }
+}

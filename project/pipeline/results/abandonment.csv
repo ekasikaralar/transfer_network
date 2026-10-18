@@ -1,0 +1,27 @@
+class,kind,n_obs,n_abandoned,abandon_frac,mean_patience_s,rate_per_hr
+Retail (node 1),orig,1158053,21108,0.0182,473.0461,7.6103
+Retail (node 1),rework,5817,93,0.016,470.1313,7.6574
+Retail (node 2),orig,1183989,22841,0.0193,543.2629,6.6266
+Retail (node 2),rework,5636,86,0.0153,400.3888,8.9913
+Retail (node 3),orig,856812,17833,0.0208,520.2241,6.9201
+Retail (node 3),rework,4847,92,0.019,745.8109,4.827
+Premier,orig,150502,4324,0.0287,266.6273,13.502
+Premier,rework,2827,33,0.0117,341.6203,10.538
+Business,orig,278777,12179,0.0437,478.8324,7.5183
+Business,rework,11159,121,0.0108,614.6405,5.8571
+Platinum,orig,22495,768,0.0341,455.3241,7.9065
+Platinum,rework,345,1,0.0029,3.9942,901.3062
+Consumer Loans,orig,297626,5458,0.0183,751.7199,4.789
+Consumer Loans,rework,27193,75,0.0028,675.6407,5.3283
+Online Banking,orig,145663,3416,0.0235,513.7684,7.007
+Online Banking,rework,16587,197,0.0119,453.6078,7.9364
+EBO,orig,37331,870,0.0233,712.9874,5.0492
+EBO,rework,17285,11,0.0006,585.4337,6.1493
+Telesales,orig,310382,8945,0.0288,453.4623,7.9389
+Telesales,rework,19997,47,0.0024,760.7762,4.732
+Subanco,orig,25578,393,0.0154,503.4353,7.1509
+Subanco,rework,926,17,0.0184,719.5274,5.0033
+Case Quality,orig,18566,1197,0.0645,391.5047,9.1953
+Case Quality,rework,1342,0,0.0,,
+Priority Service,orig,26838,3456,0.1288,228.2654,15.7711
+Priority Service,rework,1921,0,0.0,,
